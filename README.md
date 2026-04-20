@@ -11,10 +11,10 @@ Usage:
 * Hit **Renumber**
 
 The tool will not only renumber the lines, but also fix all:
-* GOTO <line>
-* GOSUB <line>
-* THEN <line>
-* ON X GOTO <line-1>,<line-2>,<line-3>
+* `GOTO <line>`
+* `GOSUB <line>`
+* `THEN <line>`
+* `ON X GOTO <line-1>,<line-2>,<line-3>`
 
 **Note:** Empty lines will be replaced by `REM *` to maintain line numbering integrity.
 
