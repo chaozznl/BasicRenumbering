@@ -10,11 +10,12 @@ Usage:
 * Pick if you want a space between the line number and the code
 * Hit **Renumber**
 
-The tool will not only renumber the lines, but also fix all:
-* `GOTO <line>`
-* `GOSUB <line>`
-* `THEN <line>`
-* `ON X GOTO <line-1>,<line-2>,<line-3>`
+The tool will not only renumber the lines, but also:
+* Update any `GOTO <line>`
+* Update any `GOSUB <line>`
+* Update any `THEN <line>`
+* Update any `ON X GOTO <line-1>,<line-2>,<line-3>`
+* Ignore all text in strings
 
 **Note:** Empty lines will be replaced by `REM *` to maintain line numbering integrity.
 
