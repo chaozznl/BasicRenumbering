@@ -165,7 +165,7 @@
 
 <p><em>Disclaimer: This tool is provided as-is without any warranties. Always keep a backup of your original code before using the renumbering tool.</em></p>
 
-<p>Sourcecode available on Github:  
+<p>More details and sourcecode available on Github:  
 <a href="https://github.com/chaozznl/BasicRenumbering" target="_blank">
     https://github.com/chaozznl/BasicRenumbering
 </a></p>
