@@ -1,5 +1,5 @@
-#Commodore 64 BASIC Line Renumbering Tool
-##by E. Wenners, 2026
+# Commodore 64 BASIC Line Renumbering Tool
+## by E. Wenners, 2026
 
 With this tool you can renumber a Commodore 64 BASIC project (*and probably other flavors of BASIC*).
 
