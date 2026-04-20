@@ -101,25 +101,103 @@
         }
     }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Commodore 64 BASIC Line Renumbering Tool</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        line-height: 1.6;
+        color: #222;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .subtitle {
+        text-align: center;
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 30px;
+    }
+    form label {
+        font-weight: bold;
+        display: block;
+        margin-top: 15px;
+    }
+    input[type="number"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        font-family: monospace;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    input[type="checkbox"] {
+        margin-top: 10px;
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .output-label {
+        font-weight: bold;
+        margin-top: 30px;
+        display: block;
+    }
+</style>
+</head>
+<body>
+
+<h1>Commodore 64 BASIC Line Renumbering Tool</h1>
+<div class="subtitle">by E. Wenners, 2026</div>
+
+<p>Paste your sourcecode into the textarea below, specify the starting line number and increment, and click <strong>Renumber</strong>. The tool will renumber your BASIC code while preserving the structure and references.</p>
+
+<p><strong>Note:</strong> Empty lines will be replaced with <code>REM *</code> to maintain line numbering integrity.</p>
+
+<p><em>Disclaimer: This tool is provided as-is without any warranties. Always keep a backup of your original code before using the renumbering tool.</em></p>
+
+<p>Sourcecode available on Github:  
+<a href="https://github.com/chaozznl/BasicRenumbering" target="_blank">
+    https://github.com/chaozznl/BasicRenumbering
+</a></p>
+
 <form method="POST">
     <label for="start">Start:</label>
-    <input type="number" id="start" name="start" value="<?php echo isset($_POST['start']) ? $_POST['start'] : ''; ?>" required>
-    <br>
+    <input type="number" id="start" name="start" 
+           value="<?php echo $_POST['start'] ?? ''; ?>" required>
+
     <label for="increment">Increment:</label>
-    <input type="number" id="increment" name="increment" value="<?php echo isset($_POST['increment']) ? $_POST['increment'] : ''; ?>" required>
-    <br>
-    <label for="space">Space between line number and code:</label>
-    <input type="checkbox" id="space" name="space" value="1" <?php echo !empty($_POST['space']) ? 'checked' : ''; ?>>
-    <br>
+    <input type="number" id="increment" name="increment" 
+           value="<?php echo $_POST['increment'] ?? ''; ?>" required>
+
+    <label>
+        <input type="checkbox" id="space" name="space" value="1"
+               <?php echo !empty($_POST['space']) ? 'checked' : ''; ?>>
+        Space between line number and code
+    </label>
+
     <label for="data">Sourcecode:</label>
-    <br>
-    <textarea name="data" rows="10" cols="50" placeholder="Enter your data here..." required><?php echo isset($_POST['data']) ? $_POST['data'] : ''; ?></textarea>
-    <br>
+    <textarea name="data" rows="10" placeholder="Enter your data here..." required><?php 
+        echo $_POST['data'] ?? '';
+    ?></textarea>
+
     <button type="submit">Renumber</button>
 </form>
-    <label for="renumbered">Renumbered Sourcecode:</label>
-    <br>
-    <textarea name="renumbered" rows="10" cols="50" placeholder="Renumbered code will appear here..." readonly><?php
+
+<label class="output-label" for="renumbered">Renumbered Sourcecode:</label>
+<textarea name="renumbered" rows="10" readonly placeholder="Renumbered code will appear here..."><?php
     foreach ($code as $lineNumber => $codeline)
         echo $lineNumber . (isset($_POST['space']) ? " " : "") . $codeline . "\n";
 ?></textarea>
+
+</body>
+</html>
