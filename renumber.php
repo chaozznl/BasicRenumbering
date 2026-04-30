@@ -1,5 +1,5 @@
 <?php
-    if (isset($_POST['start']))
+    if (isset($_POST['start']) && isset($_POST['increment']) && isset($_POST['data']))
     {
         $start = intval($_POST['start']); // start at this line number
         $increment = intval($_POST['increment']); // incremement by this amount
