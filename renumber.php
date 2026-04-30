@@ -173,11 +173,11 @@
 <form method="POST">
     <label for="start">Start:</label>
     <input type="number" id="start" name="start" 
-           value="<?php echo $_POST['start'] ?? 10; ?>" required>
+           value="<?php echo htmlspecialchars($_POST['start'] ?? 10); ?>" required>
 
     <label for="increment">Increment:</label>
     <input type="number" id="increment" name="increment" 
-           value="<?php echo $_POST['increment'] ?? 10; ?>" required>
+           value="<?php echo htmlspecialchars($_POST['increment'] ?? 10); ?>" required>
 
     <label>
         <input type="checkbox" id="space" name="space" value="1"
@@ -187,7 +187,13 @@
 
     <label for="data">Sourcecode:</label>
     <textarea name="data" rows="10" placeholder="Enter your data here..." required><?php 
-        echo $_POST['data'] ?? '4 REM test\n5 GOSUB 100\n20 PRINT "HELLO WORLD"\n99 GOTO 20\n100 PRINT "START!"\n150 RETURN';
+        echo htmlspecialchars($_POST['data'] ?? 
+'4 REM test
+5 GOSUB 100
+20 PRINT "HELLO WORLD"
+99 GOTO 20
+100 PRINT "START!"
+150 RETURN');
     ?></textarea>
 
     <button type="submit">Renumber</button>
@@ -195,8 +201,11 @@
 
 <label class="output-label" for="renumbered">Renumbered Sourcecode:</label>
 <textarea name="renumbered" rows="10" readonly placeholder="Renumbered code will appear here..."><?php
-    foreach ($code as $lineNumber => $codeline)
-        echo $lineNumber . (isset($_POST['space']) ? " " : "") . $codeline . "\n";
+    foreach ($code as $lineNumber => $codeline) {
+        echo htmlspecialchars(
+            $lineNumber . (isset($_POST['space']) ? " " : "") . $codeline
+        ) . "\n";
+    }
 ?></textarea>
 
 </body>
