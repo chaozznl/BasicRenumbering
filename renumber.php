@@ -181,7 +181,7 @@
 
     <label>
         <input type="checkbox" id="space" name="space" value="1"
-               <?php echo !empty($_POST['space']) ? 'checked' : ''; ?>>
+               <?php echo isset($_POST['space']) ? 'checked' : (!$_POST ? 'checked' : ''); ?>>
         Space between line number and code
     </label>
 
