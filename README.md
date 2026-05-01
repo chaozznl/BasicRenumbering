@@ -5,9 +5,9 @@ With this tool you can renumber a Commodore 64 BASIC project (*and probably othe
 
 Usage:
 * Paste your sourcecode into the textarea
-* Set the starting line number (default=10)
-* Set the increment (default=10)
-* Pick if you want a space between the line number and the code (default=on)
+* Set the starting line number (*default=10*)
+* Set the increment (*default=10*)
+* Pick if you want a space between the line number and the code (*default=on*)
 * Hit **Renumber**
 
 The tool will not only renumber the lines, but also:
