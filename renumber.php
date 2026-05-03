@@ -156,7 +156,7 @@
 </head>
 <body>
 
-<h1>Commodore 64 BASIC Line Renumbering Tool</h1>
+<h1>BASIC Line Renumbering Tool</h1>
 <div class="subtitle">by E. Wenners, 2026</div>
 
 <p>Paste your sourcecode into the textarea below, specify the starting line number and increment, and click <strong>Renumber</strong>. The tool will renumber your BASIC code while preserving the structure and references.</p>
